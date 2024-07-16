@@ -3,6 +3,7 @@ import { Product } from "../models/product.js";
 import ErrorHandler from "../utils/utility-class.js";
 import { rm } from "fs";
 import { myCache } from "../app.js";
+import { invalidateCache } from "../utils/features.js";
 export const newProduct = TryCatch(async (req, res, next) => {
     const { name, price, stock, category } = req.body;
     const photo = req.file;
@@ -14,6 +15,7 @@ export const newProduct = TryCatch(async (req, res, next) => {
         });
         return next(new ErrorHandler("Please enter All Fields", 400));
     }
+    await invalidateCache({ product: true, admin: true });
     await Product.create({
         name,
         price,

@@ -3,64 +3,67 @@ const schema = new mongoose.Schema({
     shippingInfo: {
         address: {
             type: String,
-            required: true
+            required: true,
         },
         city: {
             type: String,
-            required: true
+            required: true,
         },
         state: {
             type: String,
-            required: true
+            required: true,
         },
         country: {
             type: String,
-            required: true
+            required: true,
         },
         pinCode: {
             type: Number,
-            required: true
-        }
+            required: true,
+        },
     },
     user: {
         type: String,
         ref: "User",
-        required: true
+        required: true,
     },
     subtotal: {
         type: Number,
-        required: true
+        required: true,
     },
     tax: {
         type: Number,
-        required: true
+        required: true,
     },
     shippingCharges: {
         type: Number,
-        required: true
+        required: true,
     },
     discount: {
         type: Number,
-        required: true
+        required: true,
     },
     total: {
         type: Number,
-        required: true
+        required: true,
     },
     status: {
         type: String,
         enum: ["Processing", "Shipped", "Delivered"],
         default: "Processing",
     },
-    orderItems: {
-        name: String,
-        photo: String,
-        price: Number,
-        productId: {
-            type: mongoose.Types.ObjectId,
-            ref: "Product",
-        }
-    }
+    orderItems: [
+        {
+            name: String,
+            photo: String,
+            price: Number,
+            quantity: Number,
+            productId: {
+                type: mongoose.Types.ObjectId,
+                ref: "Product",
+            },
+        },
+    ],
 }, {
     timestamps: true,
 });

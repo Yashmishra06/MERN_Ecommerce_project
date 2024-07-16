@@ -12,6 +12,7 @@ export const newUser = TryCatch(
       next: NextFunction
     ) => {
       const { name, email, photo, gender, _id, dob } = req.body;
+      
   
       let user = await User.findById(_id);
   
