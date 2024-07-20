@@ -32,22 +32,28 @@ const Home = () => {
       </h1>
 
       <main>
-        {isLoading ? (
-          <Skeleton width="80vw" />
-        ) : (
-          data?.products.map((i) => (
-            <ProductCard
-              key={i._id}
-              productId={i._id}
-              name={i.name}
-              price={i.price}
-              stock={i.stock}
-              handler={addToCartHandler}
-              photo={i.photo}
-            />
-          ))
-        )}
-      </main>
+          {isLoading ? (
+            <>
+              {Array.from({ length: 6 }, (_, i) => (
+                <div key={i} style={{ height: "25rem" }}>
+                  
+                </div>
+              ))}
+            </>
+          ) : (
+            data?.products.map((i) => (
+              <ProductCard
+                key={i._id}
+                productId={i._id}
+                name={i.name}
+                price={i.price}
+                stock={i.stock}
+                handler={addToCartHandler}
+                photo={i.photo}
+              />
+            ))
+          )}
+        </main>
     </div>
   );
 };

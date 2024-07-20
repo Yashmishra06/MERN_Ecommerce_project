@@ -1,10 +1,13 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import {
   AllProductsResponse,
+ 
   CategoriesResponse,
   DeleteProductRequest,
+  
   MessageResponse,
   NewProductRequest,
+ 
   ProductResponse,
   SearchProductsRequest,
   SearchProductsResponse,
@@ -83,8 +86,10 @@ export const productAPI = createApi({
 export const {
   useLatestProductsQuery,
   useAllProductsQuery,
+  
   useCategoriesQuery,
   useSearchProductsQuery,
+ 
   useNewProductMutation,
   useProductDetailsQuery,
   useUpdateProductMutation,

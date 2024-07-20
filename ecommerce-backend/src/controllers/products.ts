@@ -189,7 +189,11 @@ export const newProduct = TryCatch(
 
     const totalPage = Math.ceil(filteredOnlyProduct.length / limit);
 
-
+    return res.status(200).json({
+      success: true,
+      products,
+      totalPage,
+    });
 
 
 

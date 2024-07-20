@@ -150,4 +150,9 @@ export const getAllProducts = TryCatch(async (req, res, next) => {
         Product.find(baseQuery),
     ]);
     const totalPage = Math.ceil(filteredOnlyProduct.length / limit);
+    return res.status(200).json({
+        success: true,
+        products,
+        totalPage,
+    });
 });
